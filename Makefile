@@ -1,7 +1,7 @@
 CC = g++
 CFLAGS = -Wall -O2
 TARGET = hadamard
-SRC = main.cpp
+SRC = trasformata.cpp
 # Regola principale: compila il programma
 all:
 	$(CC) $(CFLAGS) $(SRC) -o $(TARGET)
