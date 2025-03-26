@@ -1,6 +1,3 @@
-
-
-    
 #include <iostream>
 #include <cmath>
 #include <stdlib.h>
@@ -93,44 +90,35 @@ void fwht2(double*a,int n, int k){
 
 
 int main() {
-    double v[] = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0,7.0,8.0,9.0,10.0,11.0,12.0,13.0,14.0,15.0,16.0}; 
-    double w[] = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0,7.0,8.0,9.0,10.0,11.0,12.0,13.0,14.0,15.0,16.0}; 
-    double j[] = {1.0, 2.0, 3.0, 4.0, 5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,13.0,14.0,15.0,16.0};
-    double s[] = {1.0, 2.0, 3.0, 4.0, 5.0,6.0,7.0,8.,9.0,10.0,11.0,12.0,13.0,14.0,15.0,16.0};
-    int taglia = sizeof(v) / sizeof(v[0]);
  double *x = nullptr;
-    int n = 1000000, k_ = 30;
+    int n = 8388608, k_ = 30;
     x = (double *) malloc(n * sizeof(double));
     std::clock_t c_start = std::clock();
-    Hmm(x,30);
+    Hmm(x,n);
     std::clock_t c_end = std::clock();
     cout << "Dimensioni per il test: n = " << n << std::endl;
     cout << "Tempo impiegato per sketching denso: " << (c_end - c_start) / 1000.0 << "ms" << std::endl;
-        // Calcolo la dimensione dell'array
-    // Inizializzo l'array per il risultato
-    Hmm(v, taglia);
-    cout << "la trasformata vale:[";
-    for (int i = 0; i < taglia; i++) {
-        cout << v[i] << " ";
-    }
-    cout << "]"<< endl;
-
-    int k[]={0,1,3,4,5,6,7,10,14};
-    int taglia2=sizeof(k)/sizeof(k[0]); 
-    Hmridotta(k,taglia2,w,taglia);
-    cout << "la trasformata ridotta vale:[";
-    for (int i = 0; i < taglia2; i++){
-        cout << w[k[i]]<< " ";
-    }
-    cout<<"]"<<endl;
-
-    fwht(j,taglia);
-    cout<<"la trasformata intera col metodo iterativo vale: [";
-    for(int i=0;i<taglia;i++){
-        cout<<j[i]<<" ";
-    }
-    cout<<"]"<<endl;
-    fwht2(s,taglia,8);
+    free(x);
+     y = (double *) malloc(n * sizeof(double));
+    
+    k=[]={0,10,13,16,20,32,56,80,90,102}
+        int taglia2=sizeof(k)/sizeof(k[0]); 
+    std::clock_t c_start1 = std::clock();
+    Hmridotta(k,taglia2,y,n);
+    std::clock_t c_end2 = std::clock();
+    cout<<"Per calcolare solo "<< taglia2 << "indici ho impiegato:" << (c_end1 - c_start1)/1000.0 <<"ms"<< endl;
+free(y);
+    z=(double *) malloc (n * sizeof(double));
+    std::clock_t c_start2 = std::clock();
+    fwht(j,n);
+    std::clock_t c_end2 = std::clock();
+   cout<< "Per calcolare la trasformata col metodo iterativo impiego " << (c_end2 - c_start2)/1000.0 << "ms" << endl;
+    free(z);
+    s= (double *) malloc(n * sizeof(double));
+    std::clock_t c_start3 = std::clock();
+    fwht2(s,taglia,30);
+    std::clock_t c_end3 = std::clock();
+    cout<< " Per calcolare una singola entrata col metodo iterativo ho impiegato " << (c_end3 - c_start3 )/1000.0 << "ms" << endl;
 
     return 0;
 }
