@@ -100,7 +100,7 @@ int main() {
     Hmm(x,n);
     std::clock_t c_end = std::clock();
     cout << "Dimensioni per il test: n = " << n << std::endl;
-    cout << "Tempo impiegato per sketching denso: " << (c_end - c_start) / 1000.0 << "ms" << std::endl;
+    cout << "Tempo impiegato per valutazione intera ricorsiva : " << (c_end - c_start) / 1000.0 << "ms" << std::endl;
     free(x);
      y = (double *) malloc(n * sizeof(double));
     
