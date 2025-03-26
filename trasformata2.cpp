@@ -105,7 +105,7 @@ int main() {
      y = (double *) malloc(n * sizeof(double));
     
     int k[]={0,10,13,16,20,32,56,80,90,102}
-        int taglia2=sizeof(k)/sizeof(k[0]); 
+        int taglia2 = sizeof(k)/sizeof(k[0]); 
     std::clock_t c_start1 = std::clock();
     Hmridotta(k,taglia2,y,n);
     std::clock_t c_end2 = std::clock();
