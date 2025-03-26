@@ -3,6 +3,9 @@
     
 #include <iostream>
 #include <cmath>
+#include <stdlib.h>
+#include <ctime>
+#include <cmath>
 
 using namespace std;
 
@@ -95,7 +98,15 @@ int main() {
     double j[] = {1.0, 2.0, 3.0, 4.0, 5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,13.0,14.0,15.0,16.0};
     double s[] = {1.0, 2.0, 3.0, 4.0, 5.0,6.0,7.0,8.,9.0,10.0,11.0,12.0,13.0,14.0,15.0,16.0};
     int taglia = sizeof(v) / sizeof(v[0]);
-    // Calcolo la dimensione dell'array
+ double *x = nullptr;
+    int n = 1000000, k_ = 30;
+    x = (double *) malloc(n * sizeof(double));
+    std::clock_t c_start = std::clock();
+    Hmm(x,30);
+    std::clock_t c_end = std::clock();
+    cout << "Dimensioni per il test: n = " << n << std::endl;
+    cout << "Tempo impiegato per sketching denso: " << (c_end - c_start) / 1000.0 << "ms" << std::endl;
+        // Calcolo la dimensione dell'array
     // Inizializzo l'array per il risultato
     Hmm(v, taglia);
     cout << "la trasformata vale:[";
