@@ -91,6 +91,9 @@ void fwht2(double*a,int n, int k){
 
 int main() {
  double *x = nullptr;
+    double *y= nullptr;
+    double *z= nullptr;
+    double *s=nullptr;
     int n = 8388608, k_ = 30;
     x = (double *) malloc(n * sizeof(double));
     std::clock_t c_start = std::clock();
@@ -101,7 +104,7 @@ int main() {
     free(x);
      y = (double *) malloc(n * sizeof(double));
     
-    k=[]={0,10,13,16,20,32,56,80,90,102}
+    int k[]={0,10,13,16,20,32,56,80,90,102}
         int taglia2=sizeof(k)/sizeof(k[0]); 
     std::clock_t c_start1 = std::clock();
     Hmridotta(k,taglia2,y,n);
@@ -110,7 +113,7 @@ int main() {
 free(y);
     z=(double *) malloc (n * sizeof(double));
     std::clock_t c_start2 = std::clock();
-    fwht(j,n);
+    fwht(z,n);
     std::clock_t c_end2 = std::clock();
    cout<< "Per calcolare la trasformata col metodo iterativo impiego " << (c_end2 - c_start2)/1000.0 << "ms" << endl;
     free(z);
@@ -119,6 +122,6 @@ free(y);
     fwht2(s,taglia,30);
     std::clock_t c_end3 = std::clock();
     cout<< " Per calcolare una singola entrata col metodo iterativo ho impiegato " << (c_end3 - c_start3 )/1000.0 << "ms" << endl;
-
+free(s);
     return 0;
 }
