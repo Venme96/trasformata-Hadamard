@@ -108,7 +108,7 @@ int main() {
         int taglia2 = sizeof(k)/sizeof(k[0]); 
     std::clock_t c_start1 = std::clock();
     Hmridotta(k,taglia2,y,n);
-    std::clock_t c_end2 = std::clock();
+    std::clock_t c_end1 = std::clock();
     cout<<"Per calcolare solo "<< taglia2 << "indici ho impiegato:" << (c_end1 - c_start1)/1000.0 <<"ms"<< endl;
 free(y);
     z=(double *) malloc (n * sizeof(double));
@@ -119,7 +119,7 @@ free(y);
     free(z);
     s= (double *) malloc(n * sizeof(double));
     std::clock_t c_start3 = std::clock();
-    fwht2(s,taglia,30);
+    fwht2(s,n,30);
     std::clock_t c_end3 = std::clock();
     cout<< " Per calcolare una singola entrata col metodo iterativo ho impiegato " << (c_end3 - c_start3 )/1000.0 << "ms" << endl;
 free(s);
