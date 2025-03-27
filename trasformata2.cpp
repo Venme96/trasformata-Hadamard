@@ -59,10 +59,12 @@ void fwht(double* a, int n) {
 //in pratica h rappresenta la grandezza dei vettori da cui parto, da cui ricaverò un vettore di dimensione 2h.
 // nel secondo ciclo , mi rappresenta il fatto che devo fare il procedimento per il numero di nodi n/h , solo che ogni volta ne prendo due, è per questo che lo faccio n/2h volte.
 
-void fwht2(double*a,int n, int k){
+double fwht2(double a[],int n, int k){
     int m=log2(n);
     int rapp[m];
-    int tem=k;
+    double temp[n];
+    for(int i=0;i<n;i++)
+    temp[i]=a[i];
     for(int i=m-1;i>=0;i--)
         { if(k%2==0)
             rapp[i]=0;
@@ -70,9 +72,8 @@ void fwht2(double*a,int n, int k){
         {rapp[i]=1;
         k--;}
         k=k/2;}
-   
-    //ora ho un array con la rappresentazione binaria di k
 
+    //ora ho un array con la rappresentazione binaria di k
     for(int h=1;h<n;h=h*2){
         
         for(int i=0;i<n;i=i+2*h){
@@ -80,15 +81,38 @@ void fwht2(double*a,int n, int k){
             int log=log2(h);
            if (rapp[m-1-log]==0)
            { 
-               a[i]=a[i]+a[i+h];}
+               temp[i]=temp[i]+temp[i+h];}
             else 
            {
-               a[i]=a[i]-a[i+h];}
+               temp[i]=temp[i]-temp[i+h];}
     }}
-        cout<<"il risultato è: a["<<tem<<"]="<<a[0]<<endl;
+        return temp[0];
 }
 
+void rappresentazionebase2matriciale(int n, int *k, int m_){ //manca double *a
+    int m=log2(n);
+    int rapp[m_][m];//questa sarà una matrice che contiene le rappresentazioni binarie degli indici scelti in k: la riga rappresenta la scrittura binaria dell'indice scelto, mentre in una colonna ci sarà o 0 o 1 in base... 
+    
+for(int j=0;j<m_;j++){
+    for(int i=m-1;i>=0;i--)
+        { if(k[j]%2==0)
+            rapp[j][i]=0;
+         else 
+        {rapp[j][i]=1;
+        k[j]--;}
+        k[j]=k[j]/2;}}
 
+}
+//avere la rappresentazione binaria di un array di k numeri costa O(klogn) che è minore del costo a cui vogliamo arrivare di O(nlogk), quindi va bene!
+void fwht3(double*a,int n, int *k,int s){
+    //s è la size di k;
+    double temp[n];
+    for(int i=0;i<n;i++){
+        temp[i]=a[i];
+    }
+    for(int i=0;i<s;i++)
+        a[k[i]]=fwht2(temp,n,k[i]);
+}
 int main() {
  double *x = nullptr;
     double *y= nullptr;
@@ -119,9 +143,9 @@ free(y);
     free(z);
     s= (double *) malloc(n * sizeof(double));
     std::clock_t c_start3 = std::clock();
-    fwht2(s,n,30);
+    fwht2(s,n,k,taglia2);
     std::clock_t c_end3 = std::clock();
-    cout<< " Per calcolare una singola entrata col metodo iterativo ho impiegato " << (c_end3 - c_start3 )/1000.0 << "ms" << endl;
+    cout<< " Per calcolare la trasformata col metodo iterativo ho impiegato " << (c_end3 - c_start3 )/1000.0 << "ms" << endl;
 free(s);
     return 0;
 }
