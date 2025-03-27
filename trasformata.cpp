@@ -17,7 +17,7 @@ void Hmm(double* v, int taglia) {
            tmp=v[i];
            v[i]=v[i]+v[i+ind];
            v[i+ind]=tmp-v[i+ind];
-       }
+       } 
         Hmm(v,ind);
         Hmm(v+ind,ind);
     }
