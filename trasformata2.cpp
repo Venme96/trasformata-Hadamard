@@ -12,8 +12,8 @@ void Hmm(double* v, int taglia) {
     } 
     else {
         int ind = taglia / 2;
+        double tmp;
        for(int i=0;i<ind;i++){
-           double tmp;
            tmp=v[i];
            v[i]=v[i]+v[i+ind];
            v[i+ind]=tmp-v[i+ind];
@@ -29,11 +29,11 @@ void Hmridotta(int*j,int k, double *v, int taglia) {
     else{
         int ind=taglia/2;
         int s=0;
+        double tmp;
         while(j[s]<ind)
             { s++;}
         s++;
         for(int i=0;i<ind;i++){
-            double tmp;
             tmp=v[i];
             v[i]=v[i]+v[i+ind];;
             v[i+ind]=tmp-v[i+ind];
@@ -46,10 +46,11 @@ void Hmridotta(int*j,int k, double *v, int taglia) {
     }
 
 void fwht(double* a, int n) {
+    double tmp;
     for (int h = 1; h < n; h = h* 2) { // log_2(n) iterazioni 
         for (int i = 0; i < n; i =i+ 2 * h) { // n/(2h) iterazioni 
             for (int j = i; j < i + h; j++) { //h iterazioni 
-                double tmp = a[j];
+                tmp = a[j];
                 a[j] = a[j] + a[j+h];
                 a[j + h] = tmp - a[j+h];;
             }
