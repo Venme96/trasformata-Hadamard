@@ -62,7 +62,8 @@ void fwht(double* a, int n) {
 double fwht2(double a[],int n, int k){
     int m=log2(n);
     int rapp[m];
-    double temp[n];
+    double* temp = new double[n];
+    
     for(int i=0;i<n;i++)
     temp[i]=a[i];
     for(int i=m-1;i>=0;i--)
@@ -86,7 +87,9 @@ double fwht2(double a[],int n, int k){
            {
                temp[i]=temp[i]-temp[i+h];}
     }}
-        return temp[0];
+    double y_=temp[0];
+    delete[] temp;
+        return y_;
 }
 
 void rappresentazionebase2matriciale(int n, int *k, int m_){ //manca double *a
