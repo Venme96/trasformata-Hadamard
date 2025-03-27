@@ -2,10 +2,12 @@ CC = g++
 CFLAGS = -Wall -O2
 TARGET = hadamard
 SRC = trasformata.cpp
-# Regola principale: compila il programma
+
 all:
 	$(CC) $(CFLAGS) $(SRC) -o $(TARGET)
 
-# Comando per pulire i file compilati
+run: all
+	ulimit -s unlimited && ./$(TARGET)
+
 clean:
 	rm -f $(TARGET)
