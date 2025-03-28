@@ -95,14 +95,14 @@ double fwht2(double a[],int n, int k){
 
 void rappresentazionebase2matriciale(int n, int *k, int m_){ //manca double *a
     int m=log2(n);
-    int rapp[m_][m];//questa sarà una matrice che contiene le rappresentazioni binarie degli indici scelti in k: la riga rappresenta la scrittura binaria dell'indice scelto, mentre in una colonna ci sarà o 0 o 1 in base... 
+    int rapp_[m_][m];//questa sarà una matrice che contiene le rappresentazioni binarie degli indici scelti in k: la riga rappresenta la scrittura binaria dell'indice scelto, mentre in una colonna ci sarà o 0 o 1 in base... 
     
 for(int j=0;j<m_;j++){
     for(int i=m-1;i>=0;i--)
         { if(k[j]%2==0)
-            rapp[j][i]=0;
+            rapp_[j][i]=0;
          else 
-        {rapp[j][i]=1;
+        {rapp_[j][i]=1;
         k[j]--;}
         k[j]=k[j]/2;}}
 
