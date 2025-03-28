@@ -122,7 +122,8 @@ int main() {
     double *y= nullptr;
     double *z= nullptr;
     double *s=nullptr;
-    int n = 8388608, k_ = 30;
+    int n = 8388608;
+    //int k_ = 30;
     x = (double *) malloc(n * sizeof(double));
     std::clock_t c_start = std::clock();
     Hmm(x,n);
