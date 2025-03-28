@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS = -Wall -O2
+CFLAGS = -Wall -O2 -Wno-unused-but-set-variable
 TARGET = hadamard
 SRC = trasformata2.cpp
 
