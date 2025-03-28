@@ -63,10 +63,11 @@ void fwht(double* a, int n) {
 double fwht2(double a[],int n, int k){
     int m=log2(n);
     int rapp[m];
-    double* temp = new double[n];
-    
+    double* temp;
+    temp = (double *) malloc(n * sizeof(double));
     for(int i=0;i<n;i++)
     temp[i]=a[i];
+    
     for(int i=m-1;i>=0;i--)
         { if(k%2==0)
             rapp[i]=0;
@@ -89,7 +90,7 @@ double fwht2(double a[],int n, int k){
                temp[i]=temp[i]-temp[i+h];}
     }}
     double y_=temp[0];
-    delete[] temp;
+    free(temp);
         return y_;
 }
 
@@ -117,6 +118,7 @@ void fwht3(double*a,int n, int *k,int s){
     }
     for(int i=0;i<s;i++)
         a[k[i]]=fwht2(temp,n,k[i]);
+    free(temp);
 }
 int main() {
  double *x = nullptr;
