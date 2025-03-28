@@ -110,7 +110,8 @@ for(int j=0;j<m_;j++){
 //avere la rappresentazione binaria di un array di k numeri costa O(klogn) che è minore del costo a cui vogliamo arrivare di O(nlogk), quindi va bene!
 void fwht3(double*a,int n, int *k,int s){
     //s è la size di k;
-    double temp[n];
+    double *temp=nullptr;
+    temp = (double *) malloc(n * sizeof(double));
     for(int i=0;i<n;i++){
         temp[i]=a[i];
     }
