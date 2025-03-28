@@ -6,8 +6,8 @@ SRC = trasformata2.cpp
 all:
 	$(CC) $(CFLAGS) $(SRC) -o $(TARGET)
 
-//run: all
-//	ulimit -s unlimited && ./$(TARGET)
+run: all
+	ulimit -s unlimited && ./$(TARGET)
 
 clean:
 	rm -f $(TARGET)
