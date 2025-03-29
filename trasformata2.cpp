@@ -126,7 +126,16 @@ int main() {
     double *z= nullptr;
     double *s=nullptr;
     int n = 8388608;
-    //int k_ = 30;
+    int k_ = 30;
+    int k[k_];
+    std::srand(std::time(nullptr));  // Inizializza il generatore di numeri casuali
+    // Riempie l'array con numeri casuali
+    for (int i = 0; i < K_; i++) {
+        arr[i] = std::rand() % (MAX_VALUE + 1);
+    }
+    // Ordina l'array
+    std::sort(arr, arr + K_);
+    
     x = (double *) malloc(n * sizeof(double));
     std::clock_t c_start = std::clock();
     Hmm(x,n);
@@ -135,8 +144,6 @@ int main() {
     cout << "Tempo impiegato per valutazione intera ricorsiva : " << (c_end - c_start) / 1000.0 << "ms" << std::endl;
     free(x);
      y = (double *) malloc(n * sizeof(double));
-    
-    int k[]={0,10,13,16,20,32,56,80,90,102};
         int taglia2 = sizeof(k)/sizeof(k[0]); 
     std::clock_t c_start1 = std::clock();
     Hmridotta(k,taglia2,y,n);
