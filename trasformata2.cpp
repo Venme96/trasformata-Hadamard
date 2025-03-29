@@ -133,13 +133,13 @@ int main() {
     std::srand(std::time(nullptr));  // Inizializza il generatore di numeri casuali
     // Riempie l'array con numeri casuali
     for (int i = 0; i < k_; i++) {
-        arr[i] = std::rand() % (n + 1);
+        k[i] = std::rand() % (n + 1);
     }
     // Ordina l'array
     std::sort(k, k + k_);
         std::cout << "Array ordinato: ";
     for (int i = 0; i < k_; i++) {
-        std::cout << arr[i] << " ";
+        std::cout << k[i] << " ";
     }
     std::cout << std::endl;
     
