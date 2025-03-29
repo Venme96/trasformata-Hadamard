@@ -18,7 +18,7 @@ int main(int argc, const char *argv[]) {
     // all'interno della matrice S di riferimento delle entrate sensate (normalmente sarebbero
     // Gaussiane o simili). Dal punto di vista del costo computazionale questo non ha nessuna importanza.
     double *S = nullptr, *x = nullptr, *y = nullptr;
-    BLAS_INT_TYPE n = 1000000, k = 30;
+    BLAS_INT_TYPE n = 8388608, k = 30; //ho modificato mettendo n una potenza di 2.
     double alpha = 1.0, beta = 0.0;
     char trans = 'N';
     BLAS_INT_TYPE incx = 1, incy = 1;
