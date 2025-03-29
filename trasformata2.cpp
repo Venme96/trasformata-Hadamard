@@ -135,6 +135,11 @@ int main() {
     }
     // Ordina l'array
     std::sort(arr, arr + K_);
+        std::cout << "Array ordinato: ";
+    for (int i = 0; i < K_; i++) {
+        std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
     
     x = (double *) malloc(n * sizeof(double));
     std::clock_t c_start = std::clock();
@@ -148,7 +153,7 @@ int main() {
     std::clock_t c_start1 = std::clock();
     Hmridotta(k,taglia2,y,n);
     std::clock_t c_end1 = std::clock();
-    cout<<"Per calcolare solo "<< taglia2 << "indici ho impiegato:" << (c_end1 - c_start1)/1000.0 <<"ms"<< endl;
+    cout<<"Per calcolare solo "<< taglia2 << " indici ho impiegato:" << (c_end1 - c_start1)/1000.0 <<"ms"<< endl;
 free(y);
     z=(double *) malloc (n * sizeof(double));
     std::clock_t c_start2 = std::clock();
