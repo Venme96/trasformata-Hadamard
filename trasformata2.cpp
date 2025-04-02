@@ -24,7 +24,6 @@ void Hmm(double* v, int taglia) {
         Hmm(v+ind,ind);
     }
 }
-
 void Hmridotta(int*j,int k, double *v, int taglia) {
     if(k==0|| taglia==1)
         return;
@@ -34,14 +33,16 @@ void Hmridotta(int*j,int k, double *v, int taglia) {
         double tmp;
         while(j[s]<ind)
             { s++;}
-        s++; // Questo s++ sembra non servire?
+         //s++; // Questo s++ sembra non servire?
         for(int i=0;i<ind;i++){
             tmp=v[i];
-            v[i]=v[i]+v[i+ind];;
+            v[i]=v[i]+v[i+ind];
             v[i+ind]=tmp-v[i+ind];
         }
         Hmridotta(j,s,v,ind);
-        Hmridotta(j+s,k-s,v+ind,ind); // Probabilmente, qui dobbiamo shiftare gli indici di j da s 
+        for(int i=s;i<k;i++){
+        j[i]=j[i]-ind;}
+        Hmridotta(j+s,k-s,v+ind,ind); // Probabilmente, qui dobbiamo shiftare gli indici di j da s
           // in poi, con qualcosa tipo j[i] = j[i] - ind, per i = s, ..., k-1;
         }
 
