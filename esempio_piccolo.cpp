@@ -21,7 +21,7 @@ int main() {
 
     int k[]={0,6};
     int taglia2=sizeof(k)/sizeof(k[0]); 
-    Hmridotta(k,taglia2,w,taglia);
+    Hmridotta(k,taglia2,w,8); //appena finisco le prove ci rimetto taglia
     cout << "la trasformata ridotta vale:[";
     for (int i = 0; i < taglia2; i++){
         cout << w[k[i]]<< " ";
