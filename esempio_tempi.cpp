@@ -9,7 +9,7 @@ int main() {
  double *x = nullptr;
     double *y= nullptr;
     double *z= nullptr;
-    double *s=nullptr;
+  //  double *s=nullptr;
     int n = 8388608;
     int k_ = 50000;
     int k[k_];
