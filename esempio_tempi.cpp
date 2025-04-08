@@ -41,11 +41,11 @@ free(y);
     std::clock_t c_end2 = std::clock();
    cout<< "Per calcolare la trasformata col metodo iterativo impiego " << (c_end2 - c_start2)/1000.0 << "ms" << endl;
     free(z);
-    s= (double *) malloc(n * sizeof(double));
-    std::clock_t c_start3 = std::clock();
-    fwht3(s,n,k,taglia2);
-    std::clock_t c_end3 = std::clock();
+   // s= (double *) malloc(n * sizeof(double));
+    //std::clock_t c_start3 = std::clock();
+    //fwht3(s,n,k,taglia2);
+    //std::clock_t c_end3 = std::clock();
    // cout<< " Per calcolare la trasformata ridotta col metodo iterativo ho impiegato " << (c_end3 - c_start3 )/1000.0 << "ms" << endl;
-free(s);
+//free(s);
     return 0;
 }
